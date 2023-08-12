@@ -1,23 +1,26 @@
 import logo from './logo.svg';
 import './App.css';
+import Home from './Pages/Home';
+import './index.css'
+import { useSelector } from 'react-redux';
+import ListPrint from './Pages/List';
+
+function Logo() { 
+  return (
+      <div className="header">
+          <h1 className="logo mainFont">#CHIFCHUF</h1>
+      </div>
+  )
+  
+}
 
 function App() {
+  const nowSubmit = useSelector((state) => state.or.submit)
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Logo/>
+      { !nowSubmit ? <Home/> : <ListPrint/>}
     </div>
   );
 }
