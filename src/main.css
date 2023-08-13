@@ -76,7 +76,7 @@
     width: 400px;
     display: flex;
     flex-direction: column;
-    height: 400px;
+    height: 500px;
     border: solid black 3px;
     border-radius: 30px;
     justify-content: center;
@@ -138,7 +138,7 @@
     flex-direction: row-reverse;
     height: 50px;
     width: 380px;
-    justify-content: flex-end ;
+    /* justify-content: flex-end ; */
     padding: 0 10px;
     align-items: center;
     gap: 20px;
@@ -208,9 +208,14 @@
 .haz {
     display: flex;
     flex-direction: row-reverse;
-    gap: 5px;
+    gap: 10px;
     font-weight: 400;
     font-size: 20px;
+    /* border: solid 0.5px black; */
+    border-radius: 30px;
+    margin-bottom: 5px;
+    padding: 5px 8px;
+    background-color: #000;
 }
 
 .time {
@@ -219,6 +224,11 @@
 
 .totalInList {
     font-weight: 800;
+}
+
+.whiteText {
+    color: white;
+    margin: 5px 0 5px 0 ;
 }
 
 .yaziot {
@@ -240,3 +250,40 @@
     flex-direction: column;
 }
 
+
+.custom-range {
+    -webkit-appearance: none; 
+    appearance: none; 
+    width: 100%;
+    height: 3px; 
+    background: black; 
+    outline: none; 
+    
+    transition: opacity 0.2s; 
+  }
+  
+  /* .custom-range:hover {
+    opacity: .7;
+  } */
+  
+  .custom-range::-webkit-slider-thumb { 
+    -webkit-appearance: none; 
+    appearance: none;
+    width: 20px; 
+    height: 20px; 
+    background: #000; 
+    cursor: pointer; 
+    border-radius: 50%; 
+  }
+  
+  .custom-range::-moz-range-thumb { 
+    width: 20px; 
+    height: 20px; 
+    background: #000; 
+    cursor: pointer; 
+    border-radius: 50%; 
+  }
+  
+  .rangeInput {
+    margin: 20px 0 5px 0;
+  }

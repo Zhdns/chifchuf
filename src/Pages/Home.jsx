@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect  } from "react"
-import { addOrders, addReturns,addDate, isSubmit} from "../services/stote"
+import { addOrders, addReturns,addDate, isSubmit, addOrderRange, addReturnRange} from "../services/stote"
 import { useDispatch } from 'react-redux';
 import '../main.css'
 
@@ -29,6 +29,8 @@ function Uploader() {
     const [month, setMonth] = useState('')
     const [year, setYear] = useState('')
     const [date, setDate] = useState('')
+    const [returnRange, setReturnRange] = useState(20)
+    const [orderRange, setOrderRange] = useState(5)
 
     useEffect(() => {
         // Этот код будет выполнен, когда day, month или year изменятся
@@ -60,6 +62,8 @@ function Uploader() {
         dispatch(addOrders({ orders: orderJSON }));
         dispatch(addReturns({ returns: returnJSON }))
         dispatch(isSubmit()) 
+        dispatch(addOrderRange(orderRange))
+        dispatch(addReturnRange(returnRange))
     }
 
     const handleOrderRefClick = () => {
@@ -83,7 +87,7 @@ function Uploader() {
     return(
         <div className="upload">
             <div className="dateBlock">
-                <h1 className="hebrewFont">תאריך</h1>
+                <h1 className="textInput">תאריך</h1>
                 <div className="date">
                     <input  className='inputDate' name="date" type="text" onChange={(e)=> setDay(e.target.value)} placeholder="27"></input>
                     <p className="slash">/</p>
@@ -108,7 +112,21 @@ function Uploader() {
                     <span className="hebrewFont hebrewSpan invertible">{returnStatus}</span>
                 </div>
             </div>
-            <button className="submitButton hebrewFont" onClick={handleSubmit}>ידכון</button>
+            <div className="inputBlock">
+                <h1 className="textInput">טווח חזרות</h1>
+                <div className="rangeInput">
+                    <input type="range" className="custom-range" min="20" max="150" onChange={(e) => setReturnRange(e.target.value)}></input>
+                    <span className="hebrewFont">{returnRange}</span>
+                </div>
+            </div>
+            <div className="inputBlock">
+                <h1 className="textInput">טווח הכנות</h1>
+                <div className="rangeInput">
+                    <input type="range" className="custom-range" min="5" max="25" onChange={(e) => setOrderRange(e.target.value)}></input>
+                    <span className="hebrewFont">{orderRange}</span>
+                </div>
+            </div>
+            <button className="submitButton hebrewFont" onClick={handleSubmit}>עידכון</button>
         </div>
     )
     

@@ -19,10 +19,10 @@ function Total(props) {
 function Returns(props) {
     return (
         <li className="haz">
-            <p>{props.name}</p>
-            <p>{props.project} -</p>
-            <p className="totalInList">--{props.total}--</p>
-            <p className="time">{props.time}</p>
+            <p className="whiteText">{props.number}</p>
+            <p className="whiteText">{props.project} -</p>
+            <p className="totalInList whiteText">--{props.total}--</p>
+            <p className="time whiteText">{props.time}</p>
         </li>
     )
 }
@@ -30,9 +30,9 @@ function Returns(props) {
 function Orders(props) {
     return (
         <li className="haz">
-            <p>{props.number}</p>
-            <p>{props.name}</p>
-            <p>{props.project} -</p>
+            <p className="whiteText">{props.number}</p>
+            <p className="whiteText">{props.name}</p>
+            <p className="whiteText">{props.project} -</p>
     </li>
     )   
 }
@@ -45,6 +45,8 @@ function ListPrint() {
     const returns = useSelector((state) => state.or.returns)
     const orders = useSelector((state) => state.or.orders)
     const date = useSelector((state) => state.or.date)
+    const returnRange = useSelector((state) => state.or.returnRage)
+    const orderRange = useSelector((state) => state.or.orderRange)
     
     const [totalReturnNumber, setTotalReturnNumder] = useState(0)
     const [totalReturns, setTotalReturns] = useState([])
@@ -54,9 +56,10 @@ function ListPrint() {
     const [totalOrder, setTotalOrder] = useState([])
 
     useEffect(() => {
-        const todayOrders = orders.filter((o) => (o[STATUS] === NEW || o[STATUS] === ONPROCESS) && o[NUMBEROFLINES] > 15);
+        const todayOrders = orders.filter((o) => (o[STATUS] === NEW || o[STATUS] === ONPROCESS) && o[NUMBEROFLINES] > orderRange);
         setTotalOrder(todayOrders);
         console.log(todayOrders);
+        console.log(orderRange)
     }, [orders]);
 
     useEffect(() => {
@@ -66,9 +69,10 @@ function ListPrint() {
     }, [returns])
 
     useEffect(() => {
-        const todaysReturns = totalReturns.filter((r) => r[NUMBEROFLINES] > 99)
+        const todaysReturns = totalReturns.filter((r) => r[NUMBEROFLINES] > returnRange)
         setMainReturns(todaysReturns)
         console.log(todaysReturns)
+        console.log(returnRange)
     }, [totalReturns])
 
     useEffect(() => {
@@ -104,7 +108,7 @@ function ListPrint() {
             <ul className="hazarot">
             {mainReturns.map(r => (
                 <Returns
-                name={r[PRODCTION]}
+                number={r[ORDERNUMEBER]}
                 project={r[PRODCTION]}
                 total={r[NUMBEROFLINES]}
                 time={r[UNTILTIME]}

@@ -6,7 +6,9 @@ export const or = createSlice({
         submit: false,
         orders: [],
         returns: [],
-        date: ''
+        date: '',
+        orderRange: 8,
+        returnRage: 80,
     },
     reducers: {
         addOrders: (state, action) => {
@@ -25,10 +27,16 @@ export const or = createSlice({
         },
         isSubmit: (state, action) => { 
             state.submit = true
+        },
+        addOrderRange: (state, action) => {
+            state.orderRange = action.payload
+        },
+        addReturnRange: (state, action) => {
+            state.returnRage = action.payload
         }
     }
 })
 
-export const {addOrders, addReturns, addDate, isSubmit} = or.actions
+export const {addOrders, addReturns, addDate, isSubmit, addOrderRange, addReturnRange} = or.actions
 
 export default or
