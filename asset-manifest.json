@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/chifchuf/static/css/main.f5dda264.css",
-    "main.js": "/chifchuf/static/js/main.09934b7e.js",
+    "main.js": "/chifchuf/static/js/main.367bcf2f.js",
     "static/js/787.e3eba50e.chunk.js": "/chifchuf/static/js/787.e3eba50e.chunk.js",
     "static/media/logo.svg": "/chifchuf/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/chifchuf/index.html",
     "static/media/add_circle_FILL0_wght400_GRAD0_opsz48.svg": "/chifchuf/static/media/add_circle_FILL0_wght400_GRAD0_opsz48.9b37b46156d0d4a33b16.svg",
     "main.f5dda264.css.map": "/chifchuf/static/css/main.f5dda264.css.map",
-    "main.09934b7e.js.map": "/chifchuf/static/js/main.09934b7e.js.map",
+    "main.367bcf2f.js.map": "/chifchuf/static/js/main.367bcf2f.js.map",
     "787.e3eba50e.chunk.js.map": "/chifchuf/static/js/787.e3eba50e.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.f5dda264.css",
-    "static/js/main.09934b7e.js"
+    "static/js/main.367bcf2f.js"
   ]
 }
